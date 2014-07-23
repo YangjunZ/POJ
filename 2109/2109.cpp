@@ -6,6 +6,38 @@
 
 using namespace std;
 
+string lagerNumMultiply(string a, string b){
+	string product;
+	product.resize(a.size() + b.size());
+	for( int i=0; i<product.size(); i++){
+		product[i] = '0';
+	}
+	for( int ai=a.size()-1; ai>=0; ai--){
+		for(int bi=b.size()-1; bi>=0; bi--){
+			int tmp = (a[ai]-'0' )*(b[bi]-'0');
+			product[ai+bi+1] += tmp % 10; 
+			product[ai+bi] += tmp/10; 
+		}
+	}
+	cout << product<<endl;
+	for(int pi=product.size()-1; pi>0; pi--){
+		int tmp = product[pi] - '0';
+		product[pi] = tmp % 10 + '0';
+		product[pi-1] += tmp/10;
+	}
+	int pos = 0;
+	for( ; pos<product.size();pos++){
+		if(product[pos] != '0')
+			break;
+	}
+	return product.substr(pos);
+}
+
+int lagerNumCompare(string a, string b){
+	return a.compare(b);
+}
+
+
 double sqrtn(double n, double p){
 	double res = p;
 	cout << n << ','<<p<<endl;
@@ -22,27 +54,18 @@ void systemPause(void){
     cin.get();
 }
 
-int main2()
-{
-	long long n,p;
-	cin >> n >> p;
-	cout << n << '#'<<p<<endl;
-	if(n % 2 == 0)
-		cout << sqrtn(n,p)<<endl;
-	else
-		cout <<sqrtn(n+1,p)<<','<<sqrtn(n-1,p)<<endl;
-
-	// systemPause();
-	system("PAUSE");
-}
-
 
 int main()
 {
 	
-
-	double n,p;
-	cin >> n >> p;
-	cout << n << '#'<<p<<endl;
-	system("PAUSE");
+	string n, p;
+	while(true){
+		cin >> n >> p;
+		cout << n << '#'<<p<<endl;
+		// system("PAUSE");
+		cout << lagerNumCompare(n,p) <<endl;
+		cout << lagerNumMultiply(n,p) <<endl;
+	}
+	systemPause();
+	return 0;
 }
