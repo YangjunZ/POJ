@@ -6,7 +6,7 @@
 
 using namespace std;
 
-string lagerNumMultiply(string a, string b){
+string largeNumMultiply(string a, string b){
 	string product;
 	product.resize(a.size() + b.size());
 	for( int i=0; i<product.size(); i++){
@@ -33,9 +33,15 @@ string lagerNumMultiply(string a, string b){
 	return product.substr(pos);
 }
 
-int lagerNumCompare(string a, string b){
+int largeNumCompare(string a, string b){
 	return a.compare(b);
 }
+
+string largeNumPower(string a, int b){
+	//a^b
+	string res = '1';
+}
+
 
 
 double sqrtn(double n, double p){
@@ -63,8 +69,8 @@ int main()
 		cin >> n >> p;
 		cout << n << '#'<<p<<endl;
 		// system("PAUSE");
-		cout << lagerNumCompare(n,p) <<endl;
-		cout << lagerNumMultiply(n,p) <<endl;
+		cout << largeNumCompare(n,p) <<endl;
+		cout << largeNumMultiply(n,p) <<endl;
 	}
 	systemPause();
 	return 0;
