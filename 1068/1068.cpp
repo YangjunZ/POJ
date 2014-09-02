@@ -15,7 +15,7 @@ int wseq[MAX_W_SEQ + 1];
 
 int main()
 {
-	cout << "hello world" << endl;
+	// cout << "hello world" << endl;
 	int pcnt = 0;
 	int plen = 0;
 	string sstr;
@@ -53,13 +53,13 @@ int main()
 				wi ++;
 			}
 		}
-		cout << sstr << endl;
+		// cout << sstr << endl;
 		for(int wi=0;wi<plen;wi++)
 			cout<<wseq[wi]<<' ';
 		cout <<endl;
 	}
 
 
-	systemPause();
+	// systemPause();
 	return 0;
 }
